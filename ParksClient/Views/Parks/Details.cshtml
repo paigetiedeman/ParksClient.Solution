@@ -1,0 +1,21 @@
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>@Model.ParkName</h1>
+<ul>
+  <li>@Model.State, USA</li>
+  <li>Rating: @Model.Rating/10</li>
+  <li>Highlight's: @Model.Highlight</li>
+  @if(Model.Visited == true)
+        {
+            <li>Visited!</li>
+        }
+        else 
+        {
+            <li>Not Visited Yet!</li>
+        }
+</ul>
+<br>
+<a href="/Parks/Edit/@(Model.ParkId)" class="btn btn-dark">Edit Park</a>
+<a href="/Parks/Delete/@(Model.ParkId)" class="btn btn-dark">Delete Park</a>
