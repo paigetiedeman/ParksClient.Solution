@@ -1,0 +1,39 @@
+@{
+  Layout = "_Layout";
+}
+
+@using ParksClient.Models
+
+<h1>Add a New Park!</h1>
+<hr>
+
+<form action="/parks" method="post" class="form-group">
+  <label for="parkName">Park Name:</label>
+  <input for="parkName" type="text" name="parkName" class="form-control">
+  <br>
+  <label for="state">State:</label>
+  <input for="state" type="text" name="state" class="form-control" placeholder="WA">
+  <br>
+  <label for="rating">Rating:</label>
+  <input for="rating" type="number" name="rating" class="form-control" placeholder="1-10">
+  <br>
+  <label for="highlight">Highlights:</label>
+  <input for="highlight" type="text" name="highlight" class="form-control">
+  <br>
+  <label for="visited">Have you Visited this Park?</label>
+  <input for="visited" type="checkbox" name="visited" class="form-control">
+  <br>
+  <button type="submit" class="btn btn-dark">Submit!</button>
+</form>
+
+<h3>All Parks</h3>
+<ul>
+  @foreach (Park park in Model)
+  {
+    <p><em>@park.ParkName</em></p>
+    <li>Rating: @park.Rating/10</li>
+    <li>Highlight's: @park.Highlight</li>
+    <a href="/parks/Details/@park.ParkId">View Details</a>
+  }
+</ul>
+<br>
