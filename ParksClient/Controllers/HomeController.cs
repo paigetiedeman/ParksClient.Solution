@@ -20,7 +20,8 @@ namespace ParksClient.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var allParks = Park.GetParks().OrderByDescending(m => m.Rating);
+            return View(allParks);
         }
 
         public IActionResult Privacy()
